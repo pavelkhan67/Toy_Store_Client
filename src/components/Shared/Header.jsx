@@ -16,11 +16,11 @@ const Header = () => {
 
     const navItems = <>
         <li><Link to="/">Home</Link></li>
-        <li><Link to="/about">All Toys</Link></li>
+        <li><Link to="/alltoys">All Toys</Link></li>
         {
             user?.email ? <>
-                <li><Link to="/bookings">My Toys</Link></li>
-                <li><Link to="/bookings">Add Toy</Link></li>
+                <li><Link to="/mytoys">My Toys</Link></li>
+                <li><Link to="/addtoy">Add Toy</Link></li>
             </> :
                 <></>
         }
