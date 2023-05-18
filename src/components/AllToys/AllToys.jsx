@@ -9,7 +9,6 @@ const AllToys = () => {
             <h2 className="text-4xl font-bold text-center pt-5 pb-8">Total Toy: {alltoys.length}</h2>
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">
-                    {/* head */}
                     <thead>
                         <tr>
                             <th>Picture & Name</th>

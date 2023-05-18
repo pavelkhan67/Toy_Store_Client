@@ -49,7 +49,7 @@ const AddToy = () => {
 
     return (
         <div>
-            <h2 className='text-3xl font-bold text-center py-5'>Add A Toy</h2>
+            <h2 className='text-3xl font-bold text-center pt-10 pb-5'>Add A Toy</h2>
             <div className="card-body">
                 <form onSubmit={handleCheckOut}>
                     <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
@@ -81,8 +81,8 @@ const AddToy = () => {
                     <div className="form-control mt-5">
                     <textarea placeholder="Details" name='details' defaultValue='Be on the lookout for other Avengers figures and gear to imagine the brave heroes defending the world from the Mad Titan Thanos! Additional products each sold separately. Subject to availability.' className="textarea textarea-bordered textarea-lg w-full" ></textarea>
                     </div>
-                    <div className="form-control mt-6">
-                        <input className='btn btn-warning text-white' type="submit" value="Order Confirm" />
+                    <div className="form-control w-1/2 lg:w-1/3 mx-auto mt-6">
+                        <input className='btn btn-secondary text-white' type="submit" value="Add A Toy" />
                     </div>
                 </form>
             </div>
