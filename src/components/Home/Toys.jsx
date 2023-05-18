@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaStar } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 const Toys = ({ toy }) => {
 
     const { name, pictureURL, price, quantity, rating, sellerName, subcategory, _id, description
@@ -15,7 +16,7 @@ const Toys = ({ toy }) => {
                 <p>Price: {price}</p>
                 <p className='flex items-center gap-2'>Rating: {rating} <span className='text-yellow-500'><FaStar/></span> </p>
                 <div className="card-actions">
-                    <button className="btn btn-secondary text-white">View Details</button>
+                <Link to={`/toy/${_id}`}><button className="btn btn-secondary text-white">View Details</button></Link>
                 </div>
             </div>
         </div>
