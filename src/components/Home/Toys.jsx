@@ -2,11 +2,12 @@ import React, { useContext } from 'react';
 import { FaStar } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
+import { toast } from 'react-toastify';
 const Toys = ({ toy }) => {
     const { user } = useContext(AuthContext);
     const checkLogin = () => {
         if(!user){
-            alert('You have to log in first to view details')
+            toast.warning('You have to log in first to view details!')
         }
     }
 

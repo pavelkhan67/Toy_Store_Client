@@ -4,6 +4,7 @@ import img from "../../assets/img/login.jpg"
 import { Link, useNavigate } from 'react-router-dom';
 import GoogleLogin from '../Shared/GoogleLogin';
 import { updateProfile } from 'firebase/auth';
+import { toast } from 'react-toastify';
 const Register = () => {
     const {createUser, LogOut } = useContext(AuthContext);
 
@@ -42,7 +43,7 @@ const Register = () => {
                 updateUserData(createdUser, name, photo)
                 handleLogOut()
                 navigate(from, { replace: true })
-                alert("User Created Successful!")
+                toast.success('User Created Successful!')
         })
         .catch(error => {
             console.log(error);

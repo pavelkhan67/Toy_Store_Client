@@ -1,13 +1,16 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import img from "../../assets/img/login.jpg"
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import GoogleLogin from '../Shared/GoogleLogin';
+import { toast } from 'react-toastify';
 
 const Login = () => {
     const {signIn} = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
+
+    const [error, setError] = useState('');
 
     const from = location.state?.from?.pathname || '/';
 
@@ -17,15 +20,22 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
 
+        setError('');
+
         signIn(email, password)
         .then(result => {
             const user = result.user;
-            alert('Login Success')
+            toast.success('User LogIn Successful!')
             navigate(from, {replace: true})
             form.reset();
         })
         .catch(error => {
-            console.log(error);
+            if(error.message == 'Firebase: Error (auth/wrong-password).'){
+                setError('Wrong Password!')
+            }
+            else if(error.message == 'Firebase: Error (auth/user-not-found).'){
+                setError('Invalid Email!')
+            }
         })
     }
 
@@ -61,6 +71,7 @@ const Login = () => {
                     </form>
                     <p className='text-center pb-5 text-sm'>New To Toy Mania? <Link className='text-secondary  font-semibold' to="/register">Register</Link></p>
                     <GoogleLogin></GoogleLogin>
+                    <p className='text-error pb-5 text-center'>{error}</p>
                 </div>
             </div>
 

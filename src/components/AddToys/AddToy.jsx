@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
+import { toast } from 'react-toastify';
 
 const AddToy = () => {
     // const service = useLoaderData();
@@ -42,7 +43,7 @@ const AddToy = () => {
         .then(data => {
             console.log(data);
             if(data.insertedId){
-                alert('Service Book Successful')
+                toast.success('Toy Added Successful!')
             }
         })
     }

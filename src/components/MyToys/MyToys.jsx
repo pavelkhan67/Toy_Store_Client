@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import Toy from './Toy';
+import { toast } from 'react-toastify';
 
 const MyToys = () => {
     const { user } = useContext(AuthContext);
@@ -24,7 +25,7 @@ const MyToys = () => {
                 .then(data => {
                     console.log(data);
                     if (data.deletedCount === 1) {
-                        alert("Successfully deleted one Services.");
+                        toast.warning("Successfully deleted one Toys!");
                         const remaining = toys.filter(toy => toy._id !== id);
                         setToys(remaining);
                     }
