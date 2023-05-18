@@ -1,10 +1,25 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import img from "../../assets/img/login.jpg"
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import GoogleLogin from '../Shared/GoogleLogin';
+import { updateProfile } from 'firebase/auth';
 const Register = () => {
-    const {createUser} = useContext(AuthContext);
+    const {createUser, LogOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        LogOut()
+            .then(() => {
+
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+
+    const [error, setError] = useState('');
+    const navigate = useNavigate();
+    const from =  '/login'
 
     const handleSignUp = event => {
         event.preventDefault();
@@ -14,13 +29,36 @@ const Register = () => {
         const password = form.password.value;
         const photo = form.photo.value;
 
+        if (!/.{6,}/.test(password)) {
+            setError("Pass: Minimum six characters");
+            return;
+        }
+
         createUser(email, password)
         .then(result => {
-            const user = result.user;
-            console.log(user);
+            const createdUser = result.user;
+                setError('')
+                form.reset();
+                updateUserData(createdUser, name, photo)
+                handleLogOut()
+                navigate(from, { replace: true })
+                alert("User Created Successful!")
         })
         .catch(error => {
             console.log(error);
+        }) 
+    }
+
+    const updateUserData = (user, name, photo) => {
+        updateProfile(user, {
+            displayName : name,
+            photoURL: photo
+        })
+        .then(() => {
+            // console.log("User name, photo updated");
+        })
+        .catch(error => { 
+            setError(error.message)
         })
     }
 
@@ -65,6 +103,7 @@ const Register = () => {
                     </form>
                     <p className='text-center pb-5 text-sm'>Already have an account? <Link className='text-secondary  font-semibold' to="/login">Login</Link></p>
                     <GoogleLogin></GoogleLogin>
+                    <p className='text-error pb-5 text-center'>{error}</p>
                 </div>
             </div>
         </div>

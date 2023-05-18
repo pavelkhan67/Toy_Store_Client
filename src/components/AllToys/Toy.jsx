@@ -1,6 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Toy = ({ toy }) => {
+    
     const { name, pictureURL, price, quantity, rating, sellerName, subcategory, _id, description
     } = toy || {};
     return (
@@ -15,7 +17,6 @@ const Toy = ({ toy }) => {
                     <div>
                         <div className="font-bold">{name}</div>
                         <div className="text-sm opacity-50">Rating: {rating}</div>
- 
                     </div>
                 </div>
             </td>
@@ -25,7 +26,7 @@ const Toy = ({ toy }) => {
             <td>{subcategory}</td>
             <td>{price}</td>
             <td>{quantity}</td>
-            <td><button className='btn btn-secondary text-white'>View Details</button></td>
+            <td><Link to={`/toy/${_id}`}><button className="btn btn-secondary text-white">View Details</button></Link></td>
         </tr>
     );
 };

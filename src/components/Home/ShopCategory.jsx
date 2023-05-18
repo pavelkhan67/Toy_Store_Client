@@ -3,7 +3,7 @@ import Toys from './Toys';
 
 const ShopCategory = () => {
     const [toys, setToys] = useState([]);
-    const [activeTab, setActiveTab] = useState("Avengers");
+    const [activeTab, setActiveTab] = useState("All");
 
     useEffect(() => {
         fetch(`http://localhost:5000/toys/${activeTab}`)
@@ -36,8 +36,8 @@ const ShopCategory = () => {
                             X-Men
                         </div>
                         <div
-                            onClick={() => handleTabClick("Ghost Rider")}
-                            className={`px-4 py-2 Ghost Rider ${activeTab == "Ghost Rider" ? " bg-red-700 text-white" : "bg-base-200"
+                            onClick={() => handleTabClick("GhostRider")}
+                            className={`px-4 py-2 GhostRider ${activeTab == "GhostRider" ? " bg-red-700 text-white" : "bg-base-200"
                                 }`}
                         >
                             Ghost Rider
