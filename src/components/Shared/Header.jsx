@@ -1,19 +1,34 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import logo from "../../assets/logo.png"
+import { AuthContext } from '../../providers/AuthProvider';
 
 const Header = () => {
+    const { user, LogOut } = useContext(AuthContext);
 
+    const handleLogOut = () => {
+        LogOut()
+            .then(() => {
+
+            })
+            .catch(error => console.log(error))
+    }
 
     const navItems = <>
-    <li><Link to="/">Home</Link></li>
-    <li><Link to="/about">All Toys</Link></li>
-    <li><Link to="/blog">Blog</Link></li>
-    
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/about">All Toys</Link></li>
+        {
+            user?.email ? <>
+                <li><Link to="/bookings">My Toys</Link></li>
+                <li><Link to="/bookings">Add Toy</Link></li>
+            </> :
+                <></>
+        }
+        <li><Link to="/blog">Blog</Link></li>
     </>
 
     return (
-        <div className="navbar bg-base-200 h-24">
+        <div className="navbar bg-base-100 h-24">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -34,7 +49,18 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                
+                {
+                    user ? <>
+                        <div className="tooltip tooltip-left" data-tip={user.displayName}>
+                            <button><label className="btn btn-ghost btn-circle avatar">
+                                <div className="w-10 rounded-full" >
+                                    <img src={user?.photoURL} />
+                                </div>
+                            </label></button>
+                        </div>
+                        <button onClick={handleLogOut} className='btn btn-sm ms-3 btn-secondary rounded-full normal-case text-sm'>Log Out</button>
+                    </> : <> <NavLink to="/login"><button className='btn btn-circle w-16 btn-secondary normal-case text-base'>Login</button></NavLink> </>
+                }
             </div>
         </div>
     );
