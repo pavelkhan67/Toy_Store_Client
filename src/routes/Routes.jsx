@@ -9,6 +9,7 @@ import PrivateRoute from "./PrivateRoute";
 import AddToy from "../components/AddToys/AddToy";
 import MyToys from "../components/MyToys/MyToys";
 import ErrorPage from "../ErrorPage";
+import Blog from "../components/Blog/Blog";
 
 const router = createBrowserRouter([
     {
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
           path: "/toy/:id",
           element:<PrivateRoute><SingleToy></SingleToy></PrivateRoute>,
           loader: ({params}) => fetch(`http://localhost:5000/toy/${params.id}`)
+        },
+        {
+          path: "/blog",
+          element: <Blog></Blog>
         },
     
       ]
