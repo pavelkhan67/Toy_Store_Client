@@ -3,6 +3,7 @@ import Banner from './Banner';
 import Gallery from './Gallery';
 import AboutUs from './AboutUs';
 import ShopCategory from './ShopCategory';
+import RequestAToy from './RequestAToy';
 
 const Home = () => {
     return (
@@ -11,6 +12,7 @@ const Home = () => {
             <AboutUs></AboutUs>
             <Gallery></Gallery>
             <ShopCategory></ShopCategory>
+            <RequestAToy></RequestAToy>
         </div>
     );
 };

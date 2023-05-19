@@ -7,7 +7,7 @@ const AddToy = () => {
     // const {_id, title, service_id, price , img} = service;
     const {user} = useContext(AuthContext);
 
-    const handleCheckOut = event => {
+    const handleToyAdd = event => {
         event.preventDefault();
         const form = event.target;
         const sellerName = form.sellername.value;
@@ -52,7 +52,7 @@ const AddToy = () => {
         <div>
             <h2 className='text-3xl font-bold text-center pt-10 pb-5'>Add A Toy</h2>
             <div className="card-body">
-                <form onSubmit={handleCheckOut}>
+                <form onSubmit={handleToyAdd}>
                     <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
                         <div className="form-control">
                             <input type="text" name='sellername' defaultValue={user?.displayName} placeholder="Name" className="input input-bordered" />

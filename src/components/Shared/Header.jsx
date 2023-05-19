@@ -15,16 +15,16 @@ const Header = () => {
     }
 
     const navItems = <>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/alltoys">All Toys</Link></li>
+        <li><NavLink to="/">Home</NavLink></li>
+        <li><NavLink to="/alltoys">All Toys</NavLink></li>
         {
             user?.email ? <>
-                <li><Link to="/mytoys">My Toys</Link></li>
-                <li><Link to="/addtoy">Add Toy</Link></li>
+                <li><NavLink to="/mytoys">My Toys</NavLink></li>
+                <li><NavLink to="/addtoy">Add Toy</NavLink></li>
             </> :
                 <></>
         }
-        <li><Link to="/blog">Blog</Link></li>
+        <li><NavLink to="/blog">Blog</NavLink></li>
     </>
 
     return (
@@ -39,8 +39,8 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className='lg:flex flex-row-reverse'>
-                    <Link to="/" className="btn btn-ghost normal-case font-bold text-lg lg:text-xl">ToyMania</Link>
-                    <Link><img className='h-10 lg:h-12 ms-5 px-1' src={logo} alt="" /></Link>
+                    <NavLink to="/" className="btn btn-ghost normal-case font-bold text-lg lg:text-xl">ToyMania</NavLink>
+                    <NavLink><img className='h-10 lg:h-12 ms-5 px-1' src={logo} alt="" /></NavLink>
                 </div>
             </div>
             <div className="navbar-center hidden lg:flex">

@@ -23,21 +23,21 @@ const ShopCategory = () => {
                     <div className="tabs d-flex justify-between gap-1 mb-5">
                         <div
                             onClick={() => handleTabClick("Avengers")}
-                            className={`px-4 py-2 Avengers ${activeTab == "Avengers" ? " bg-red-700 text-white" : "bg-base-200"
+                            className={`px-4 py-2 Avengers ${activeTab == "Avengers" ? " bg-purple-500 text-white" : "bg-base-200"
                                 }`}
                         >
                             Avengers
                         </div>
                         <div
                             onClick={() => handleTabClick("X-Men")}
-                            className={`px-4 py-2 X-Men ${activeTab == "X-Men" ? " bg-red-700 text-white" : "bg-base-200"
+                            className={`px-4 py-2 X-Men ${activeTab == "X-Men" ? " bg-purple-500 text-white" : "bg-base-200"
                                 }`}
                         >
                             X-Men
                         </div>
                         <div
                             onClick={() => handleTabClick("GhostRider")}
-                            className={`px-4 py-2 GhostRider ${activeTab == "GhostRider" ? " bg-red-700 text-white" : "bg-base-200"
+                            className={`px-4 py-2 GhostRider ${activeTab == "GhostRider" ? " bg-purple-500 text-white" : "bg-base-200"
                                 }`}
                         >
                             Ghost Rider
