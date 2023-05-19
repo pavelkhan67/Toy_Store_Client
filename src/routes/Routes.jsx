@@ -31,11 +31,11 @@ const router = createBrowserRouter([
         },
         {
           path: "/addtoy",
-          element: <AddToy></AddToy>
+          element: <PrivateRoute><AddToy></AddToy></PrivateRoute>  // private route to show progress when load
         },
         {
           path: "/mytoys",
-          element: <MyToys></MyToys>
+          element: <PrivateRoute><MyToys></MyToys></PrivateRoute>  // private route to show progress when load
         },
         {
           path: "/alltoys",
@@ -43,7 +43,7 @@ const router = createBrowserRouter([
         },
         {
           path: "/toy/:id",
-          element:<PrivateRoute><SingleToy></SingleToy></PrivateRoute>,
+          element: <PrivateRoute><SingleToy></SingleToy></PrivateRoute>,
           loader: ({params}) => fetch(`https://toy-store-server-rho.vercel.app/toy/${params.id}`)
         },
         {

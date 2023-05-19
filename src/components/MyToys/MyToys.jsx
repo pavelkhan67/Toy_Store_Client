@@ -7,6 +7,7 @@ import useTitle from '../../hooks/useTitle';
 const MyToys = () => {
     const { user } = useContext(AuthContext);
     const [toys, setToys] = useState([]);
+
     useTitle('My Toys')
     useEffect(() => {
         fetch(`https://toy-store-server-rho.vercel.app/mytoys/${user?.email}`)
@@ -15,7 +16,6 @@ const MyToys = () => {
                 setToys(data);
             });
     }, [user]);
-
 
 
     const handleDelete = id => {
