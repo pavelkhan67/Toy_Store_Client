@@ -16,8 +16,8 @@ const Toys = ({ toy }) => {
 
     return (
         <div className="card w-full bg-base-100 shadow-xl">
-            <figure className="px-10 pt-10">
-                <img src={pictureURL} alt="Shoes" className="rounded-xl h-72 w-9/12" />
+            <figure className=" px-0 lg:px-10 pt-2 lg:pt-10">
+                <img src={pictureURL} alt="Shoes" className="rounded-xl h-40 lg:h-72 lg:w-9/12" />
             </figure>
             <div className="card-body items-center text-center">
                 <h2 className="card-title">{name}</h2>
