@@ -6,7 +6,7 @@ const ShopCategory = () => {
     const [activeTab, setActiveTab] = useState("All");
 
     useEffect(() => {
-        fetch(`http://localhost:5000/toys/${activeTab}`)
+        fetch(`https://toy-store-server-rho.vercel.app/toys/${activeTab}`)
             .then(res => res.json())
             .then(data => setToys(data))
     }, [activeTab])
