@@ -1,15 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import img1 from "../../assets/img/img2.jpg";
 import img2 from "../../assets/img/img1.webp";
 import img3 from "../../assets/img/img3.jpg";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Banner = () => {
+    useEffect(() => {
+        AOS.init();
+    }, [])
     return (
         <div className="carousel w-full h-[600px]">
             <div id="slide1" className="carousel-item relative w-full">
                 <img src={img1} className="w-full rounded-lg" />
                 <div className=" absolute rounded-lg h-full flex items-center gap-4 left-0 top-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0)]">
-                    <div className='text-white space-y-7 w-9/12 lg:w-1/2 pl-16'>
+                    <div className='text-white space-y-7 w-9/12 lg:w-1/2 pl-16' data-aos="fade-down-right" data-aos-duration="1000">
                         <h2 className='text-5xl font-bold'>Everything Under The Sun For Kids Fun.</h2>
                         <p>There Are Many Variants Of Toys Available, We Carry The Largest Selection Of Toys In Town!</p>
                         <div className='flex gap-5 '>

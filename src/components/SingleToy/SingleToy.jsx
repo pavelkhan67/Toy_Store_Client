@@ -1,9 +1,11 @@
 import React from 'react';
 import { FaStar } from 'react-icons/fa';
 import { useLoaderData } from 'react-router-dom';
+import useTitle from '../../hooks/useTitle';
 
 const SingleToy = () => {
     const toy = useLoaderData();
+    useTitle('Details')
     const { name, pictureURL, price, quantity, rating, sellerName, email, subcategory, _id, description
     } = toy || {};
     return (
