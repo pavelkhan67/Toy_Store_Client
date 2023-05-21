@@ -21,7 +21,7 @@ const Toys = ({ toy }) => {
             </figure>
             <div className="card-body items-center text-center">
                 <h2 className="card-title">{name}</h2>
-                <p>Price: {price}</p>
+                <p>Price: $ {price}</p>
                 <p className='flex items-center gap-2'>Rating: {rating} <span className='text-yellow-500'><FaStar/></span> </p>
                 <div className="card-actions">
                 <Link to={`/toy/${_id}`}><button onClick={checkLogin} className="btn btn-secondary text-white">View Details</button></Link>

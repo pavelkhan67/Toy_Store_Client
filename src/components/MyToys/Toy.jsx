@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Toy = ({ toy, handleDelete }) => {
     const { name, pictureURL, price, quantity, rating, sellerName, subcategory, _id, description
     } = toy || {};
+    
     return (
         <tr>
             <th>
@@ -27,10 +28,9 @@ const Toy = ({ toy, handleDelete }) => {
             <td>
                 {sellerName}
             </td>
-            <td>{price}</td>
+            <td>$ {price}</td>
             <td>{quantity}</td>
-            <td><button className="btn btn-secondary text-white">Update</button></td>
-
+            <td><label htmlFor="my-modal-3" className="btn btn-secondary text-white">Update</label></td>
         </tr>
     );
 };

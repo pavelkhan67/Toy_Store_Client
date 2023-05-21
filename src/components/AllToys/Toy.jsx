@@ -24,7 +24,7 @@ const Toy = ({ toy }) => {
                 {sellerName}
             </td>
             <td>{subcategory}</td>
-            <td>{price}</td>
+            <td>$ {price}</td>
             <td>{quantity}</td>
             <td><Link to={`/toy/${_id}`}><button className="btn btn-secondary text-white">View Details</button></Link></td>
         </tr>

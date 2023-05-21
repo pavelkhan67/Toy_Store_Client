@@ -7,15 +7,16 @@ import useTitle from '../../hooks/useTitle';
 const MyToys = () => {
     const { user } = useContext(AuthContext);
     const [toys, setToys] = useState([]);
+    const [asc, setAsc] = useState(true);
 
     useTitle('My Toys')
     useEffect(() => {
-        fetch(`https://toy-store-server-rho.vercel.app/mytoys/${user?.email}`)
+        fetch(`https://toy-store-server-rho.vercel.app/mytoys/${user?.email}?sort=${asc ? 'asc' : 'desc'}`)
             .then((res) => res.json())
             .then((data) => {
                 setToys(data);
             });
-    }, [user]);
+    }, [user, asc]);
 
 
     const handleDelete = id => {
@@ -39,6 +40,9 @@ const MyToys = () => {
     return (
         <div>
             <h2 className="text-4xl font-bold text-center pt-5 pb-8">My Toy: {toys.length}</h2>
+            <div className='text-center my-5'>
+            <button onClick={() => setAsc(!asc)} className='btn btn-secondary normal-case text-white'>Sort By Price in {asc ? 'Desc' : 'Asc'} Order</button>
+            </div>
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">
                     <thead>

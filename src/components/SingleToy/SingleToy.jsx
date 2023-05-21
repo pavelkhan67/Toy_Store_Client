@@ -19,7 +19,7 @@ const SingleToy = () => {
                         {
                             email ? <p>Seller Email: {email}</p> : ''
                         }
-                        <p>Price: {price}</p>
+                        <p>Price: $ {price}</p>
                         <p>Available Quantity: {quantity}</p>
                         <p className='flex items-center gap-2'>Rating: {rating} <span className='text-yellow-500'><FaStar/></span> </p>
                         <p>Details: {description}</p>
